@@ -10,7 +10,6 @@ wn.bgcolor("black")
 wn.setup(width=600, height=800)
 wn.tracer(0) # turns off screen updates
 
-
 class Shape():
     def __init__(self): # Initializing 
         self.x = 5 # Setting the object at 5 on x axis
@@ -42,7 +41,7 @@ grid = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]            
+    [0, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4]            
 ]
 
 # Using turtle object to draw
@@ -87,11 +86,15 @@ while True:
     wn.update() # Updates the screen
 
     # Move the shape
-    if grid[shape.y + 1][shape.x] == 0:
+    # Open row
+    # If the grid shape equals zero or the y equals 23 which is the bottom row //two conditions, until bottom row is reached or something is in front
+    if shape.y == 23:
+        print("Time for a new shape")
+    elif grid[shape.y + 1][shape.x] == 0:
         grid[shape.y][shape.x] = 0
         shape.y +=1 # Add 1 to y
         grid[shape.y][shape.x] = shape.color
-    
+
     draw_grid(pen, grid)
 
 #wn.mainloop()
