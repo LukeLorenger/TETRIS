@@ -86,13 +86,11 @@ draw_grid(pen, grid)
 # Main game loop
 while True:
     wn.update() # Updates the screen
-
+    
+    # If the grid shape equals zero or the y equals 23 which is the bottom row //two conditions, until bottom row is reached or something is in front
     # Move the shape
     # Open row
-    # If the grid shape equals zero or the y equals 23 which is the bottom row //two conditions, until bottom row is reached or something is in front
-    if shape.y == 23:
-        print("Time for a new shape")
-    elif grid[shape.y + 1][shape.x] == 0:
+    if grid[shape.y + 1][shape.x] == 0:
         grid[shape.y][shape.x] = 0
         shape.y +=1 # Add 1 to y
         grid[shape.y][shape.x] = shape.color
